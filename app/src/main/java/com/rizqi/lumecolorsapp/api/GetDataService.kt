@@ -123,6 +123,20 @@ interface GetDataService {
     ): Call<ResponseApprove>
 
     @FormUrlEncoded
+    @POST("approve_out/approve_picker")
+    fun approvePicker(
+        @Field("id") id: String,
+        @Field("sts_approve") sts_approve: Int,
+    ): Call<ResponseApprove>
+
+    @FormUrlEncoded
+    @POST("approve_out/approve_checker")
+    fun approveChecker(
+        @Field("id") id: String,
+        @Field("sts_approve") sts_approve: Int,
+    ): Call<ResponseApprove>
+
+    @FormUrlEncoded
     @POST("approve_out/simpan_qr")
     fun saveQR(
         @Field("order_id") id: String,
