@@ -820,6 +820,118 @@ class ApproveOutActivity : AppCompatActivity() {
         })
     }
 
+    private fun fetchApprovePicker(order_id: String) {
+        mLoading.setMessage(LOADING_MSG)
+        mLoading.show()
+
+        val service = RetrofitClients().getRetrofitInstance().create(GetDataService::class.java)
+        val call = service.approvePicker(order_id, 1)
+
+        call.enqueue(object : Callback<ResponseApprove> {
+
+            override fun onFailure(call: Call<ResponseApprove>, t: Throwable) {
+
+                Toast.makeText(
+                    this@ApproveOutActivity,
+                    "Something went wrong...Please try later!",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                Log.d("FAILED :", t.message.toString())
+
+                lnrChooseQr.visibility = View.GONE
+                isDetail = false
+                getListHistory(textDateFrom.text.toString(), textDateTo.text.toString())
+            }
+
+            override fun onResponse(
+                call: Call<ResponseApprove>,
+                response: Response<ResponseApprove>
+            ) {
+
+                val res = response.body()!!
+
+                if (res.status == Constants.STAT200) {
+
+                    Toast.makeText(
+                        this@ApproveOutActivity,
+                        "Data berhasil di proses",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                } else {
+
+                    Toast.makeText(
+                        this@ApproveOutActivity,
+                        res.message,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                lnrChooseQr.visibility = View.GONE
+                isDetail = false
+                getListHistory(textDateFrom.text.toString(), textDateTo.text.toString())
+            }
+
+        })
+    }
+
+    private fun fetchApproveChecker(order_id: String) {
+        mLoading.setMessage(LOADING_MSG)
+        mLoading.show()
+
+        val service = RetrofitClients().getRetrofitInstance().create(GetDataService::class.java)
+        val call = service.approveChecker(order_id, 1)
+
+        call.enqueue(object : Callback<ResponseApprove> {
+
+            override fun onFailure(call: Call<ResponseApprove>, t: Throwable) {
+
+                Toast.makeText(
+                    this@ApproveOutActivity,
+                    "Something went wrong...Please try later!",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                Log.d("FAILED :", t.message.toString())
+
+                lnrChooseQr.visibility = View.GONE
+                isDetail = false
+                getListHistory(textDateFrom.text.toString(), textDateTo.text.toString())
+            }
+
+            override fun onResponse(
+                call: Call<ResponseApprove>,
+                response: Response<ResponseApprove>
+            ) {
+
+                val res = response.body()!!
+
+                if (res.status == Constants.STAT200) {
+
+                    Toast.makeText(
+                        this@ApproveOutActivity,
+                        "Data berhasil di proses",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                } else {
+
+                    Toast.makeText(
+                        this@ApproveOutActivity,
+                        res.message,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                lnrChooseQr.visibility = View.GONE
+                isDetail = false
+                getListHistory(textDateFrom.text.toString(), textDateTo.text.toString())
+            }
+
+        })
+    }
+
     private fun getListHistory(dari: String, sampai: String) {
         mLoading.setMessage(LOADING_MSG)
         mLoading.show()
@@ -942,6 +1054,8 @@ class ApproveOutActivity : AppCompatActivity() {
                 lnrImageShow.visibility = View.VISIBLE
                 isImgShow = true
             }
+
+
 
         })
     }

@@ -1,16 +1,9 @@
 package com.rizqi.lumecolorsapp.adapter
 
-import android.app.Dialog
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +12,8 @@ import com.rizqi.lumecolorsapp.model.MApprove
 import com.rizqi.lumecolorsapp.utils.Constants.SP_LEVEL
 import com.rizqi.lumecolorsapp.utils.SharedPreferencesUtils
 
-class ApproveOutAdapter(private val mData: List<MApprove>, private val mContext: Context): RecyclerView.Adapter<ViewHolderApprove>() {
+class ApproveOutAdapter(private val mData: List<MApprove>, private val mContext: Context) :
+    RecyclerView.Adapter<ViewHolderApprove>() {
 
     private var interfaceAdapter: InterfaceAdapter? = null
 
@@ -28,7 +22,8 @@ class ApproveOutAdapter(private val mData: List<MApprove>, private val mContext:
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderApprove {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_approve_out, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_approve_out, parent, false)
 
         return ViewHolderApprove(view, mContext)
     }
@@ -50,12 +45,22 @@ class ApproveOutAdapter(private val mData: List<MApprove>, private val mContext:
         holder.buttonSender.setOnClickListener {
             interfaceAdapter!!.onApproveSender(mData[position])
         }
+
+        holder.buttonPicker.setOnClickListener {
+            interfaceAdapter!!.onApprovePicker(mData[position])
+        }
+
+        holder.buttonChecker.setOnClickListener {
+            interfaceAdapter!!.onApproveChecker(mData[position])
+        }
     }
 
     interface InterfaceAdapter {
         fun onBtnClick(data: MApprove)
         fun onApprovePacking(data: MApprove)
         fun onApproveSender(data: MApprove)
+        fun onApprovePicker(data: MApprove)
+        fun onApproveChecker(data: MApprove)
         fun onBtnClickImage(data: MApprove)
     }
 }
@@ -69,6 +74,8 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
     var buttonListQR = view.findViewById<LinearLayout>(R.id.button_list_qr)
     var buttonPacking = view.findViewById<LinearLayout>(R.id.button_packing)
     var buttonSender = view.findViewById<LinearLayout>(R.id.button_sender)
+    var buttonPicker = view.findViewById<LinearLayout>(R.id.button_picker)
+    var buttonChecker = view.findViewById<LinearLayout>(R.id.button_checker)
     private var buttonApproved = view.findViewById<LinearLayout>(R.id.button_approved)
 
     private val sharedPreferences = SharedPreferencesUtils(context)
@@ -84,13 +91,13 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
     }
 
     //  Set Status Approve
-    fun setLevelApprove(data: MApprove){
+    fun setLevelApprove(data: MApprove) {
 
-        if (_SPLEVEL == "ADMIN"){
+        if (_SPLEVEL == "ADMIN") {
             buttonPacking.visibility = View.GONE
             buttonSender.visibility = View.GONE
 
-            if (data.approve_picker == "1" || data.approve_checker == "1"){
+            if (data.approve_picker == "1" || data.approve_checker == "1") {
                 buttonApproved.visibility = View.VISIBLE
                 buttonListQR.visibility = View.GONE
             } else {
@@ -99,11 +106,11 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
             }
         }
 
-        if (_SPLEVEL == "PICKER"){
+        if (_SPLEVEL == "PICKER") {
             buttonPacking.visibility = View.GONE
             buttonSender.visibility = View.GONE
 
-            if (data.approve_picker == "1"){
+            if (data.approve_picker == "1") {
                 buttonApproved.visibility = View.VISIBLE
                 buttonListQR.visibility = View.GONE
             } else {
@@ -112,11 +119,11 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
             }
         }
 
-        if (_SPLEVEL == "CHECKER"){
+        if (_SPLEVEL == "CHECKER") {
             buttonPacking.visibility = View.GONE
             buttonSender.visibility = View.GONE
 
-            if (data.approve_checker == "1"){
+            if (data.approve_checker == "1") {
                 buttonApproved.visibility = View.VISIBLE
                 buttonListQR.visibility = View.GONE
             } else {
@@ -134,7 +141,7 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
             buttonListQR.visibility = View.GONE
             buttonSender.visibility = View.GONE
 
-            if (data.approve_packing == "1"){
+            if (data.approve_packing == "1") {
                 buttonApproved.visibility = View.VISIBLE
                 buttonPacking.visibility = View.GONE
             } else {
@@ -153,7 +160,7 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
             buttonListQR.visibility = View.GONE
             buttonPacking.visibility = View.GONE
 
-            if (data.approve_sender == "1"){
+            if (data.approve_sender == "1") {
                 buttonApproved.visibility = View.VISIBLE
                 buttonSender.visibility = View.GONE
             } else {
