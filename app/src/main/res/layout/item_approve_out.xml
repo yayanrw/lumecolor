@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="2dp"
     android:layout_marginBottom="16dp"
+    android:padding="2dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="2dp"
     tools:ignore="ContentDescription, DisableBaselineAlignment">
 
     <RelativeLayout
         android:id="@+id/all_view_picker"
-        android:visibility="visible"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="visible">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_item"
@@ -27,9 +27,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/custom_linear_register"
                 android:paddingHorizontal="14dp"
-                android:paddingVertical="14dp"
-                android:background="@drawable/custom_linear_register">
+                android:paddingVertical="14dp">
 
                 <LinearLayout
                     android:id="@+id/button_list_qr"
@@ -37,8 +37,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view_barang"
                     android:layout_marginTop="14dp"
-                    android:paddingVertical="2dp"
                     android:background="@drawable/custom_button_login"
+                    android:paddingVertical="2dp"
                     android:visibility="visible">
 
                     <LinearLayout
@@ -60,8 +60,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:paddingVertical="4dp"
                             android:paddingHorizontal="14dp"
+                            android:paddingVertical="4dp"
                             android:text="@string/pilih"
                             android:textColor="@color/white"
                             android:textSize="18sp"
@@ -77,8 +77,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view_barang"
                     android:layout_marginTop="14dp"
-                    android:paddingVertical="2dp"
                     android:background="@drawable/custom_button_login"
+                    android:paddingVertical="2dp"
                     android:visibility="gone">
 
                     <LinearLayout
@@ -99,8 +99,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:paddingVertical="4dp"
                             android:paddingHorizontal="14dp"
+                            android:paddingVertical="4dp"
                             android:text="@string/packing_approve"
                             android:textColor="@color/white"
                             android:textSize="18sp"
@@ -116,8 +116,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view_barang"
                     android:layout_marginTop="14dp"
-                    android:paddingVertical="2dp"
                     android:background="@drawable/custom_button_login"
+                    android:paddingVertical="2dp"
                     android:visibility="gone">
 
                     <LinearLayout
@@ -138,9 +138,87 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:paddingVertical="4dp"
                             android:paddingHorizontal="14dp"
+                            android:paddingVertical="4dp"
                             android:text="@string/send_approve"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_picker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_barang"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/custom_button_login"
+                    android:paddingVertical="2dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/send" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="4dp"
+                            android:text="@string/approve_picker"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/button_checker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view_barang"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/custom_button_login"
+                    android:paddingVertical="2dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/send" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:gravity="center"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="4dp"
+                            android:text="@string/approve_checker"
                             android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -155,8 +233,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view_barang"
                     android:layout_marginTop="14dp"
-                    android:paddingVertical="2dp"
                     android:background="@drawable/custom_background_approve"
+                    android:paddingVertical="2dp"
                     android:visibility="gone">
 
                     <LinearLayout
@@ -171,8 +249,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:paddingVertical="4dp"
                             android:paddingHorizontal="14dp"
+                            android:paddingVertical="4dp"
                             android:text="@string/approved"
                             android:textColor="@color/white"
                             android:textSize="18sp"
@@ -224,15 +302,15 @@
                                 android:layout_marginTop="-4dp"
                                 android:text="@string/agen"
                                 android:textColor="@color/semi_bold"
-                                android:textSize="20sp"/>
+                                android:textSize="20sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingTop="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -249,15 +327,15 @@
                                 android:layout_marginTop="-4dp"
                                 android:text="@string/no"
                                 android:textColor="@color/semi_bold"
-                                android:textSize="20sp"/>
+                                android:textSize="20sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingTop="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -281,8 +359,8 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingTop="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -299,15 +377,15 @@
                                 android:layout_marginTop="-4dp"
                                 android:text="@string/produk"
                                 android:textColor="@color/semi_bold"
-                                android:textSize="20sp"/>
+                                android:textSize="20sp" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingTop="4dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -321,8 +399,8 @@
                                 android:id="@+id/tgl_validasi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_regular"
                                 android:layout_marginTop="-4dp"
+                                android:fontFamily="@font/poppins_regular"
                                 android:text="@string/ex_date"
                                 android:textColor="@color/semi_bold"
                                 android:textSize="20sp" />
@@ -335,7 +413,6 @@
 
                 <ImageView
                     android:id="@+id/more"
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -343,7 +420,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:src="@drawable/more_black" />
+                    android:src="@drawable/more_black"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
