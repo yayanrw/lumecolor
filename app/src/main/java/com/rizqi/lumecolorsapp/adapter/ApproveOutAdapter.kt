@@ -115,7 +115,8 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
                 buttonListQR.visibility = View.GONE
             } else {
                 buttonApproved.visibility = View.GONE
-                buttonListQR.visibility = View.VISIBLE
+                buttonListQR.visibility = View.GONE
+                buttonPicker.visibility = View.VISIBLE
             }
         }
 
@@ -129,10 +130,10 @@ class ViewHolderApprove(view: View, private val context: Context) : RecyclerView
             } else {
                 if (data.approve_picker == "1") {
                     buttonApproved.visibility = View.GONE
-                    buttonListQR.visibility = View.VISIBLE
+                    buttonChecker.visibility = View.VISIBLE
                 } else {
                     buttonApproved.visibility = View.GONE
-                    buttonListQR.visibility = View.GONE
+                    buttonChecker.visibility = View.GONE
                 }
             }
         }

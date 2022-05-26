@@ -617,6 +617,44 @@ class ApproveOutActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    private fun showDialogApprovePicker(order_id: String) {
+        val dialog = Dialog(this@ApproveOutActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_sender)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val btnNo = dialog.findViewById<Button>(R.id.button_no)
+        val btnYes = dialog.findViewById<Button>(R.id.button_yes)
+
+        btnNo.setOnClickListener { dialog.dismiss() }
+        btnYes.setOnClickListener {
+            dialog.dismiss()
+            fetchApprovePicker(order_id)
+        }
+
+        dialog.show()
+    }
+
+    private fun showDialogApproveChecker(order_id: String) {
+        val dialog = Dialog(this@ApproveOutActivity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_sender)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val btnNo = dialog.findViewById<Button>(R.id.button_no)
+        val btnYes = dialog.findViewById<Button>(R.id.button_yes)
+
+        btnNo.setOnClickListener { dialog.dismiss() }
+        btnYes.setOnClickListener {
+            dialog.dismiss()
+            fetchApproveChecker(order_id)
+        }
+
+        dialog.show()
+    }
+
     private fun setOnClickHandler() {
 
         mImageSearch.setOnClickListener {
@@ -1055,8 +1093,13 @@ class ApproveOutActivity : AppCompatActivity() {
                 isImgShow = true
             }
 
+            override fun onApprovePicker(data: MApprove) {
+                showDialogApprovePicker(data.order_id)
+            }
 
-
+            override fun onApproveChecker(data: MApprove) {
+                showDialogApproveChecker(data.order_id)
+            }
         })
     }
 
