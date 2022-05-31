@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".QrcodeActivity"
+            android:exported="false" />
+        <activity
             android:name=".main.StockOpnameActivity"
             android:exported="true" />
         <activity
@@ -43,6 +46,9 @@
             android:exported="true" />
         <activity
             android:name=".auth.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".main.QrcodeActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
